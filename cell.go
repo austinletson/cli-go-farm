@@ -22,23 +22,23 @@ const (
 	WEST
 )
 
-const worldX = 4
 const worldY = 4
+const worldX = 5
 
-var world = [4][4]CellType{
-	{GRASS, GRASS, WATER, GRASS},
-	{GRASS, GRASS, WATER, WATER},
-	{GRASS, GRASS, GRASS, GRASS},
-	{WATER, GRASS, GRASS, GRASS},
+var world = [4][5]CellType{
+	{GRASS, GRASS, WATER, GRASS, GRASS},
+	{GRASS, GRASS, WATER, WATER, GRASS},
+	{GRASS, GRASS, GRASS, GRASS, GRASS},
+	{WATER, GRASS, GRASS, GRASS, GRASS},
 }
 
 var cellPointer = [2]int{0, 0}
 
-func getWorldMatrix() [worldX][worldY]CellType {
+func getWorldMatrix() [worldY][worldX]CellType {
 	return world
 }
 
-func getWorldMatrixWithPointer() [worldX][worldY]CellType {
+func getWorldMatrixWithPointer() [worldY][worldX]CellType {
 	worldCopy := world
 	worldCopy[cellPointer[0]][cellPointer[1]] = POINTER
 	return worldCopy

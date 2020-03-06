@@ -14,7 +14,7 @@ func main() {
 	defer ui.Close()
 
 	p := widgets.NewParagraph()
-
+	info := widgets.NewParagraph()
 	var world = [][]CellType{
 		{WATER, GRASS},
 		{WATER, WATER},
@@ -22,9 +22,12 @@ func main() {
 
 	drawCellsOnWorld(world, 1, 1)
 	p.Text = getWorldString()
-	p.SetRect(0, 0, 20, 20)
+	p.Title = "World"
+	p.SetRect(0, 0, worldX+2, worldY+2)
 
-	ui.Render(p)
+	info.Text = getCellInfo(GRASS)
+	info.SetRect(worldX+5, 0, 30, 3)
+	ui.Render(p, info)
 
 	for e := range ui.PollEvents() {
 		if e.Type == ui.KeyboardEvent {

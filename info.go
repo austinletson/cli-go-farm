@@ -7,5 +7,5 @@ func getInfoString() string {
 }
 
 func getCellInfo(cell CellType) string {
-
+	return "Generic cell info"
 }
